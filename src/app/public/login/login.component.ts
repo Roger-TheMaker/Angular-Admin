@@ -1,6 +1,7 @@
 import { group } from '@angular/animations';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 export class LoginComponent implements OnInit {
   form: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private authService: AuthService) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group(
@@ -22,6 +24,13 @@ export class LoginComponent implements OnInit {
   }
 
   submit(): any {
-    console.log(this.form.getRawValue());
+
+    const data = this.form.getRawValue();
+
+    this.authService.login(data).subscribe(
+       res => {
+        console.log(res);
+      }
+    );
   }
 }

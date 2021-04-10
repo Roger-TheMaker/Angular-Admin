@@ -4,6 +4,7 @@ import { LoginComponent } from './public/login/login.component';
 import { PublicComponent } from './public/public.component';
 import { RegisterComponent } from './public/register/register.component';
 import { DashboardComponent } from './secure/dashboard/dashboard.component';
+import { ProfileComponent } from './secure/profile/profile.component';
 import { SecureComponent } from './secure/secure.component';
 import { UsersComponent } from './secure/users/users.component';
 
@@ -22,19 +23,19 @@ const routes: Routes = [
       {
         path: 'users', component: UsersComponent
       },
+      {
+        path: 'profile', component: ProfileComponent
+      },
     ],
   },
+
   {
     path: '',
     component: PublicComponent,
     children: [
-      {
-        path: 'login', component: LoginComponent
-      },
-      {
-        path: 'register', component: RegisterComponent
-      },
-    ],
+      {path: 'login', component: LoginComponent},
+      {path: 'register', component: RegisterComponent},
+    ]
   },
 ];
 
@@ -42,4 +43,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

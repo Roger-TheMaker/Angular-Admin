@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Auth } from '../classes/auth';
+import { User } from '../interfaces/user';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-secure',
@@ -6,10 +10,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./secure.component.css']
 })
 export class SecureComponent implements OnInit {
-
-  constructor() { }
+  user: User;
+  constructor(private authSevice: AuthService,
+              private router: Router) { }
 
   ngOnInit(): void {
+    // aici verificam daca utilizatorul este autentificat
+    // o facem aici pentru ca este cea mai de sus componenta
+    this.authSevice.user().subscribe(
+      res => {
+        this.user = res.data;
+        Auth.user = this.user;
+      },
+      error => {
+        this.router.navigate(['/login']);
+      }
+    );
   }
-
 }

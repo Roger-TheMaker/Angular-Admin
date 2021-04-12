@@ -8,7 +8,7 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./users.component.css']
 })
 export class UsersComponent implements OnInit {
-  users: User[];
+  users: User[] = [];
   constructor(private  userService: UserService) { }
 
   ngOnInit(): void {
@@ -17,5 +17,9 @@ export class UsersComponent implements OnInit {
         this.users = res.data;
       }
     );
+  }
+
+  prev(): any{
+
   }
 }

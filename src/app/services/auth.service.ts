@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
-import { Observable } from 'rxjs/internal/Observable';
+
 import { User } from '../interfaces/user';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ import { User } from '../interfaces/user';
 
 export class AuthService {
 
-  constructor(private http: HttpClient) { }
+  constructor(protected http: HttpClient) { }
 
   login(data): Observable<any> {
     return  this.http.post(`${environment.api}/login`, data);
@@ -30,5 +31,9 @@ export class AuthService {
 
       updatePassword(data): Observable<User> {
         return this.http.put<User>(`${environment.api}/users/password`, data);
+      }
+
+      logout(): Observable<void> {
+        return this.http.post<void>(`${environment.api}/logout`, {});
       }
 }

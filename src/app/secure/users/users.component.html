@@ -10,7 +10,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr  *ngForm="let user of users">
+            <tr  *ngFor="let user of users">
               <td>{{user.id}}</td>
               <td>{{user.first_name}} {{user.last_name}} </td>
               <td>{{user.email}}</td>
@@ -20,3 +20,10 @@
           </tbody>
         </table>
       </div>
+
+<nav>
+  <ul class = "pagination">
+    <li class ="page-item"><a class ="page-link" hreh="javascript:void(0)" (click)="prev()">Previous</a></li>
+    <li class ="page-item"><a class ="page-link" hreh="javascript:void(0)" (click)="next()">Next</a></li>
+  </ul>
+</nav>

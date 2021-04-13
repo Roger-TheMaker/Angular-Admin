@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
-  declarations: [LoginComponent, RegisterComponent, PublicComponent],
+  declarations: [PublicComponent, LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     RouterModule,

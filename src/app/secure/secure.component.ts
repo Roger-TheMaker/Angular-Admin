@@ -11,14 +11,14 @@ import { AuthService } from '../services/auth.service';
 })
 export class SecureComponent implements OnInit {
   user: User;
-  constructor(private authSevice: AuthService,
+  constructor(private authService: AuthService,
               private router: Router) { }
 
   ngOnInit(): void {
     // aici verificam daca utilizatorul este autentificat
     // o facem aici pentru ca este cea mai de sus componenta
-    this.authSevice.user().subscribe(
-      res => {
+    this.authService.user().subscribe(
+      res => { // Roger
         this.user = res.data;
         Auth.user = this.user;
       },

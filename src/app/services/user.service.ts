@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  all(): any{
-   return this.http.get(`${environment.api}/users`); // Really Nigger
+  all(page: number): any{
+   return this.http.get(`${environment.api}/users?page=${page}`); // Really Nigger
   }
 }

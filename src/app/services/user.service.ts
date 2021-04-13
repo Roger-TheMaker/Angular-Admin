@@ -16,6 +16,10 @@ export class UserService {
    return this.http.get(`${this.url}?page = ${page}`); // Really Nigger
   }
 
+  create(data): any{
+    return this.http.post(this.url, data);
+  }
+
   delete(id: number): any{
     return this.http.delete(`${this.url}/${id}`);
   }

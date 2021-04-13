@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders} from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 import { User } from '../interfaces/user';
@@ -21,8 +21,8 @@ export class AuthService {
       return  this.http.post(`${environment.api}/register`, data);
       }
 
-    user(): Observable<any>{
-      return this.http.get<User>(`${environment.api}/user`);
+      user(): Observable<any>{
+       return this.http.get<User>(`${environment.api}/user`);
       }
 
       updateInfo(data): Observable<User> {

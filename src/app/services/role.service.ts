@@ -16,4 +16,8 @@ export class RoleService {
   all(): any {
    return this.http.get(this.url);
   }
+
+  delete(id: number): any{
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }

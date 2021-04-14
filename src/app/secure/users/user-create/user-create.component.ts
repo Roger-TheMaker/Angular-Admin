@@ -32,7 +32,7 @@ export class UserCreateComponent implements OnInit {
     });
 
     this.roleService.all().subscribe(
-      roles => this.roles = roles
+      roles => this.roles = roles // Response
     );
   }
 

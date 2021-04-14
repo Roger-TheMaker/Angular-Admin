@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
 
   refresh(): any {
     this.userService.all(this.currentPage).subscribe(
-      res => {
+      res => { // Ar fi mai ok  sa ramana de tipul interfetei Response
         this.users = res.data;
         this.lastPage = res.meta.last_page; // Ok
       }

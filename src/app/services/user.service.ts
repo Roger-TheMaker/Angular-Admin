@@ -23,4 +23,12 @@ export class UserService {
   delete(id: number): any{
     return this.http.delete(`${this.url}/${id}`);
   }
+
+  get(id: number): any{
+    return this.http.get(`${this.url}/$id`);
+  }
+
+  update(id: number, data): any{
+    return this.http.put(`${this.url}/$id`, data);
+  }
 }

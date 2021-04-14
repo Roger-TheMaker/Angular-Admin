@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UserCreateComponent } from './users/user-create/user-create.component';
+import { UserEditComponent } from './users/user-edit/user-edit.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { UserCreateComponent } from './users/user-create/user-create.component';
     DashboardComponent,
     UsersComponent,
     ProfileComponent,
-    UserCreateComponent],
+    UserCreateComponent,
+    UserEditComponent],
     exports: [
       SecureComponent
     ],

@@ -26,6 +26,7 @@ export class AuthService {
       }
 
       updateInfo(data): Observable<User> {
+        console.log(data);
         return this.http.put<User>(`${environment.api}/users/info`, data);
       }
 

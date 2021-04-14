@@ -4,8 +4,8 @@ import { RestService } from './rest.service';
 @Injectable({
   providedIn: 'root'
 })
-export class UserService extends RestService{
+export class PermissionService extends RestService{
   endpoint(): string {
-    return 'users';
+     return 'permissions';
   }
 }

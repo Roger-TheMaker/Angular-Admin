@@ -20,7 +20,7 @@ export class UsersComponent implements OnInit {
 
   refresh(): any {
     this.userService.all(this.currentPage).subscribe(
-      res => {
+      res => { // Ar fi mai ok  sa ramana de tipul interfetei Response
         this.users = res.data;
         this.lastPage = res.meta.last_page; // Ok
       }
@@ -42,5 +42,15 @@ export class UsersComponent implements OnInit {
     }
     this.currentPage ++;
     this.refresh();
+  }
+
+  delete(id: number): void {
+    if (confirm('Are you sure you want to delete this record?')) {
+      this.userService.delete(id).subscribe(
+        () => {
+          this.users = this.users.filter(u => u.id !== id); // Me Smart
+        }
+      );
+    }
   }
 }

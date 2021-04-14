@@ -18,7 +18,7 @@ export class SecureComponent implements OnInit {
     // aici verificam daca utilizatorul este autentificat
     // o facem aici pentru ca este cea mai de sus componenta
     this.authService.user().subscribe(
-      res => { // Roger
+      res => { // Roger - Response
         this.user = res.data;
         Auth.user = this.user;
       },

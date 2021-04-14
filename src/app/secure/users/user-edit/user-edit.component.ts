@@ -25,6 +25,7 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('test1');
     this.form = this.formBuilder.group({
       first_name: '',
       last_name: '',
@@ -33,8 +34,12 @@ export class UserEditComponent implements OnInit {
     });
 
     this.roleService.all().subscribe(
-      roles => this.roles = roles
+      roles => {
+        this.roles = roles;
+        console.log(roles);
+      }
     );
+    console.log(this.roles);
 
     this.id = this.route.snapshot.params.id; // Roger
 

@@ -30,11 +30,9 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-  infoSubmit(): any { // Roger -  trebuie modificat
-    const data = this.infoForm.getRawValue();
-    this.authService.updateInfo(data).subscribe(
-      res => {console.log(res);
-      }
+  infoSubmit(): void {
+    this.authService.updateInfo(this.infoForm.getRawValue()).subscribe(
+      user => Auth.userEmitter.emit(user)
     );
   }
 

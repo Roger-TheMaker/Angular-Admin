@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Auth } from 'src/app/classes/auth';
 import { User } from 'src/app/interfaces/user';
 import { AuthService } from 'src/app/services/auth.service';
@@ -10,15 +11,15 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class NavComponent implements OnInit {
   user: User;
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit(): void {
     Auth.userEmitter.subscribe(user => this.user = user);
   }
 
   logout(): void {
-    // this.authService.logout().subscribe(() => {
-    //  console.log('success');
-    // });
+    localStorage.removeItem('token');
+    this.router.navigate(['/login']);
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Permission } from 'src/app/interfaces/permission';
+import { PermissionService } from 'src/app/services/permission.service';
 
 @Component({
   selector: 'app-role-create',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RoleCreateComponent implements OnInit {
 
-  constructor() { }
+  permissions: Permission[] = [];
+  constructor(private permissionService: PermissionService) { }
 
   ngOnInit(): void {
+    this.permissionService.all().subscribe(
+      res => {
+        this.permissions = res.data;
+      }
+    );
   }
 
 }

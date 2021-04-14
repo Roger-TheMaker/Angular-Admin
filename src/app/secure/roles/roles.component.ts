@@ -18,7 +18,7 @@ export class RolesComponent implements OnInit {
     );
   }
   delete(id: number): void {
-    if (confirm('Are you sure you want to delete this record?')) {
+    if (confirm('Are you sure you want to delete this role?')) {
       this.roleService.delete(id).subscribe(
         () => this.roles = this.roles.filter(r => r.id !== id)
       );

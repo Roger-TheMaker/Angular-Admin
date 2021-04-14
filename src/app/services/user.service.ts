@@ -1,34 +1,11 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { RestService } from './rest.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UserService {
-  url: string;
-
-  constructor(private http: HttpClient) {
-    this.url = `${environment.api}/users`;
-   }
-
-  all(page: number): any {
-   return this.http.get(`${this.url}?page = ${page}`); // Really Nigger
-  }
-
-  create(data): any{
-    return this.http.post(this.url, data);
-  }
-
-  delete(id: number): any{
-    return this.http.delete(`${this.url}/${id}`);
-  }
-
-  get(id: number): any{
-    return this.http.get(`${this.url}/$id`);
-  }
-
-  update(id: number, data): any{
-    return this.http.put(`${this.url}/$id`, data);
+export class UserService extends RestService{
+  endpoint(): string {
+    return 'users';
   }
 }

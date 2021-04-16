@@ -23,6 +23,7 @@ export class AuthService {
 
       user(): Observable<any>{
        return this.http.get<User>(`${environment.api}/user`);
+       // with this are getting the current authenticated user
       }
 
       updateInfo(data): Observable<User> {

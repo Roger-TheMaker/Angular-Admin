@@ -6,6 +6,8 @@ export class Auth {
   private static _user: User;
   static  userEmitter = new EventEmitter<User>();
 
+  // pentru update uri in real time
+
   static set user(user: User){
     this._user = user;
     this.userEmitter.emit(user);

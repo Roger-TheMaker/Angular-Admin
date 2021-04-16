@@ -27,7 +27,7 @@ export class RegisterComponent implements OnInit {
   submit(): void {
     const data = this.form.getRawValue();
 
-    this.authService.login(data).subscribe(
+    this.authService.register(data).subscribe(
        res => {
         console.log(res);
       }

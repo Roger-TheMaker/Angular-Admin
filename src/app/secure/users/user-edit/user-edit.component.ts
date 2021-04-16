@@ -25,6 +25,7 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    console.log('test1');
     this.form = this.formBuilder.group({
       first_name: '',
       last_name: '',
@@ -33,7 +34,9 @@ export class UserEditComponent implements OnInit {
     });
 
     this.roleService.all().subscribe(
-      roles => this.roles = roles
+      roles => {
+        this.roles = roles.data; // mod
+      }
     );
 
     this.id = this.route.snapshot.params.id; // Roger
@@ -41,10 +44,10 @@ export class UserEditComponent implements OnInit {
     this.userService.get(this.id).subscribe(
       user => {
         this.form.patchValue({ // pentru umplerea form-ului
-          first_name: user.first_name,
-          last_name: user.last_name,
-          email: user.email,
-          role_id: user.role.id
+          first_name: user.data.first_name, // mod
+          last_name: user.data.last_name,
+          email: user.data.email,
+          role_id: user.data.role.id
         });
       }
     );

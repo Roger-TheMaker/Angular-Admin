@@ -14,7 +14,7 @@ export class RolesComponent implements OnInit {
 
   ngOnInit(): void {
     this.roleService.all().subscribe(
-      roles => this.roles = roles
+      roles => this.roles = roles.data // Array thing // mod
     );
   }
   delete(id: number): void {

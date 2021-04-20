@@ -9,43 +9,25 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class UsersComponent implements OnInit {
   users: User[] = [];
-  currentPage = 1;
   lastPage: number;
 
   constructor(private  userService: UserService) { }
 
   ngOnInit(): void {
-    this.refresh();
+    this.load();
   }
 
-  refresh(): any {
-    this.userService.all(this.currentPage).subscribe(
-      res => { // Ar fi mai ok  sa ramana de tipul interfetei Response
+  load(page = 1): void {
+    this.userService.all(page).subscribe(
+      (res: any) => {
         this.users = res.data;
-        this.lastPage = res.meta.last_page; // Ok
+        this.lastPage = res.meta.last_page;
       }
     );
   }
 
-  prev(): any{
-    if (this.currentPage === 1) {
-      return ;
-    }
-    this.currentPage --;
-    this.refresh();
-  }
-
-
-  next(): any{
-    if (this.currentPage === this.lastPage) {
-      return ;
-    }
-    this.currentPage ++;
-    this.refresh();
-  }
-
   delete(id: number): void {
-    if (confirm('Are you sure you want to delete this record?')) {
+    if (confirm('Are you sure you want to delete this user?')) {
       this.userService.delete(id).subscribe(
         () => {
           this.users = this.users.filter(u => u.id !== id); // Me Smart

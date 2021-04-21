@@ -10,7 +10,7 @@ import { SecureModule } from './secure/secure.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,

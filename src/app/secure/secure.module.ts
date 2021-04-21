@@ -19,6 +19,7 @@ import { ProductCreateComponent } from './products/product-create/product-create
 import { ProductEditComponent } from './products/product-edit/product-edit.component';
 import { OrdersComponent } from './orders/orders.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { OrderViewComponent } from './orders/order-view/order-view.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     ProductCreateComponent,
     ProductEditComponent,
     OrdersComponent,
-    ImageUploadComponent],
+    ImageUploadComponent,
+    OrderViewComponent],
     exports: [
       SecureComponent
     ],

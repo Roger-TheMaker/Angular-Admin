@@ -35,7 +35,7 @@ export class OrdersComponent implements OnInit {
         link.href = downloadUrl;
         link.download = 'orders.csv';
         link.click();
-        // a very hacky way to download a file
+        // a very hacky way to download
       }
     );
   }

@@ -12,6 +12,10 @@ export class OrderService extends RestService{
   }
 
   export(): Observable<any> {
-    return this.http.post(`${environment.api}/export`, {}, {responseType: 'blob'});
+    return this.http.get(`${environment.api}/export`, {responseType: 'blob'}); // Modification
+  }
+
+  chart(): Observable<any> {
+    return this.http.get(`${environment.api}/chart`);
   }
 }

@@ -9,7 +9,7 @@ export abstract class RestService {
 
   abstract endpoint(): string;
 
-  constructor(private http: HttpClient) {}
+  constructor(protected http: HttpClient) {}
 
   get url(): any{
     return `${environment.api}/${this.endpoint()}`;

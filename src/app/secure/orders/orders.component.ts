@@ -25,4 +25,18 @@ export class OrdersComponent implements OnInit {
       }
     );
   }
+
+  export(): any {
+    this.orderService.export().subscribe(
+      res => {
+        const blob = new Blob([res], {type: 'text/csv'});
+        const downloadUrl = window.URL.createObjectURL(res);
+        const link = document.createElement('a'); // Roger - anchor link
+        link.href = downloadUrl;
+        link.download = 'orders.csv';
+        link.click();
+        // a very hacky way to download a file
+      }
+    );
+  }
 }

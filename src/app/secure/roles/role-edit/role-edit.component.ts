@@ -26,8 +26,8 @@ export class RoleEditComponent implements OnInit {
   ngOnInit(): void {
 
     this.form = this.formBuilder.group({
-      name : '',
-      permissions: this.formBuilder.array([]),
+      name: '',
+      permissions: this.formBuilder.array([])
     });
 
     this.permissionService.all().subscribe(
@@ -42,7 +42,7 @@ export class RoleEditComponent implements OnInit {
            );
         });
       }
-    ); // nu merge
+    );
 
     this.route.params.subscribe(
       params => {
@@ -52,14 +52,15 @@ export class RoleEditComponent implements OnInit {
             console.log(this.role);
             const values = this.permissions.map((p: Permission) => {
                 const selected = this.role.permissions
-               .filter((rolePermission: Permission) => rolePermission.id === p.id).length > 0;
-                if (selected){
-                 return {
+               .filter((rolePermission: Permission) =>
+                rolePermission.id === p.id).length > 0;
+
+                return {
                    value: selected,
                    id: p.id
                  };
                }
-            });
+            );
             this.form.patchValue({
               name: this.role.name,
               permissions: values,

@@ -25,7 +25,6 @@ export class UserEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('test1');
     this.form = this.formBuilder.group({
       first_name: '',
       last_name: '',
@@ -44,7 +43,7 @@ export class UserEditComponent implements OnInit {
     this.userService.get(this.id).subscribe(
       user => {
         this.form.patchValue({ // pentru umplerea form-ului
-          first_name: user.data.first_name, // mod
+          first_name: user.data.first_name,
           last_name: user.data.last_name,
           email: user.data.email,
           role_id: user.data.role.id

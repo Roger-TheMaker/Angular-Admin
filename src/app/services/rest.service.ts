@@ -33,7 +33,7 @@ export abstract class RestService {
   }
 
   get(id: number): any{
-    return this.http.get(`${this.url}/${id}`); // merge
+    return this.http.get(`${this.url}/${id}`);
   }
 
   update(id: number, data): any{

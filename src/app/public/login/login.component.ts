@@ -27,10 +27,8 @@ export class LoginComponent implements OnInit {
   submit(): any {
 
     const data = this.form.getRawValue();
-
     this.authService.login(data).subscribe(
        res => {
-        localStorage.setItem('token', res.token);
         this.router.navigate(['/dashboard']);
       }
     );

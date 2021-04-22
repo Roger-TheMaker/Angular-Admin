@@ -19,7 +19,10 @@ export class NavComponent implements OnInit {
   }
 
   logout(): void {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
+   this.authService.logout().subscribe(
+     () => {
+      this.router.navigate(['/login']);
+     }
+   );
   }
 }

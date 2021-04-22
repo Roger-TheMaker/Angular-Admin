@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Auth } from 'src/app/classes/auth';
 import { User } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -34,5 +35,8 @@ export class UsersComponent implements OnInit {
         }
       );
     }
+  }
+  canAccess(permissions): any{
+    return Auth.canAccess(permissions);
   }
 }

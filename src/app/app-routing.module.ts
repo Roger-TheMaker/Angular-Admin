@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { Permission } from './classes/permission';
 import { LoginComponent } from './public/login/login.component';
 import { PublicComponent } from './public/public.component';
 import { RegisterComponent } from './public/register/register.component';
@@ -52,7 +53,8 @@ const routes: Routes = [
         path: 'roles/:id/edit', component: RoleEditComponent
       },
       {
-        path: 'products', component: ProductsComponent
+        path: 'products',
+        component: ProductsComponent,
       },
       {path: 'products/create', component: ProductCreateComponent},
       {path: 'products/:id/edit', component: ProductEditComponent},

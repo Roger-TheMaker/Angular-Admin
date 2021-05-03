@@ -1,25 +1,18 @@
- <form  class="form-signin" [formGroup]="form" (submit)="submit()">
-    <h1 class="h3 mb-3 fw-normal">Please register here</h1>
+<main class="form-signin">
+  <form (submit)="submit()">
+    <h1 class="h3 mb-3 fw-normal">Please register</h1>
 
-    <div class="form-floating">
-      <input formControlName="first_name" class="form-control" placeholder="First Name" required>
-    </div>
+    <input [(ngModel)]="firstName" name="first_name" class="form-control" placeholder="First Name" required>
 
-    <div class="form-floating">
-      <input formControlName="last_name" class="form-control"  placeholder="Last Name">
-    </div>
+    <input [(ngModel)]="lastName" name="last_name" class="form-control" placeholder="Last Name" required>
 
-    <div class="form-floating">
-      <input formControlName="email" type="email" class="form-control" placeholder="Email address" required>
-    </div>
+    <input [(ngModel)]="email" name="email" type="email" class="form-control" placeholder="Email address" required>
 
-    <div class="form-floating">
-      <input formControlName="password" type="password" class="form-control" placeholder="Password" required>
-    </div>
+    <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="Password" required>
 
-    <div class="form-floating">
-      <input formControlName="password_confirm" name="password_confirm" type="password" class="form-control">
-    </div>
+    <input [(ngModel)]="passwordConfirm" name="password_confirm" type="password" class="form-control"
+           placeholder="Password Confirm" required>
 
     <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
   </form>
+</main>

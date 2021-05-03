@@ -7,6 +7,9 @@ import { OrderService } from 'src/app/services/order.service';
   templateUrl: './orders.component.html',
   styleUrls: ['./orders.component.css']
 })
+
+// La orders codul nu este inca complet, trebuie completat cu item seturile aferente
+// De asemenea trebuie schimbat Name ul din html, alaturi de alte completari si un buton pentru register
 export class OrdersComponent implements OnInit {
   orders: Order[] = [];
   lastPage: number;

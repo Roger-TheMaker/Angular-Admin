@@ -1,7 +1,7 @@
 import { EventEmitter } from '@angular/core';
 import { User } from '../interfaces/user';
 
-export class Auth {
+export class Auth { // Roger
   // tslint:disable-next-line:variable-name
   private static _user: User;
   static  userEmitter = new EventEmitter<User>();

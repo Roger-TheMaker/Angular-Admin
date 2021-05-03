@@ -32,7 +32,7 @@ export class UserCreateComponent implements OnInit {
     });
 
     this.roleService.all().subscribe(
-      roles => this.roles = roles.data
+      roles => this.roles = roles.data // asociaza atributelor valorile din campuri, ca in java
     );
   }
 

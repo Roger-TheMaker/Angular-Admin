@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
@@ -8,29 +9,28 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./register.component.css', './../public.component.css']
 })
 export class RegisterComponent implements OnInit {
-  form: FormGroup;
-  constructor(private formBuilder: FormBuilder,
-              private authService: AuthService) { }
+  firstName = '';
+  lastName = '';
+  email = '';
+  password = '';
+  passwordConfirm = '';
+
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) {
+  }
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group(
-      {
-        first_name: '',
-        last_name: '',
-        email: '',
-        password: '',
-        password_confirm: ''
-      }
-    );
   }
 
   submit(): void {
-    const data = this.form.getRawValue();
-
-    this.authService.register(data).subscribe(
-       res => {
-        console.log(res);
-      }
-    );
+    this.authService.register({
+      first_name: this.firstName,
+      last_name: this.lastName,
+      email: this.email,
+      password: this.password,
+      password_confirm: this.passwordConfirm,
+    }).subscribe(() => this.router.navigate(['/login']));
   }
 }
